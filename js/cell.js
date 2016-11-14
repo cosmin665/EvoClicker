@@ -1,5 +1,16 @@
 //TO DO: RE-THINK THIS SHIT ENTIRELY... FML
-
+class Cell
+{
+	constructor()
+	{
+		this.children = new PIXI.Container();
+		this.base = new PIXI.Graphics();
+		this.base.beginFill(0x00AACC);
+		this.base.drawRect(0, 0, 54, 54);
+		this.base.endFill();
+		this.base.position.set(593, 243);
+	}
+}
 
 class TestTube
 {
@@ -67,33 +78,5 @@ class TestTube
 		}
 	}
 	
-	findNearest(x, y)
-	{
-		var nDist = 99999999;
-		var nDistIndex = 0;
-		for(var i = 0; i < this.food.length; i++) 
-		{
-			let dist = Math.sqrt(((x - this.food[i].x) * (x - this.food[i].x)) + ((x - this.food[i].x) * (y - this.food[i].y)));
-			if(dist < nDist)
-			{
-				nDist = dist;
-				nDistIndex = i;
-			}
-		}
-		return this.food[nDistIndex];
-	}
 }
 
-class Cell
-{
-	constructor()
-	{
-		this.children = new PIXI.Container();
-		this.base = new PIXI.Graphics();
-		this.base.beginFill(0x00AACC);
-		this.base.drawRect(0, 0, 54, 54);
-		this.base.endFill();
-		this.base.position.set(593, 243);
-		stage.addChild(this.base);
-	}
-}
